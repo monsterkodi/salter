@@ -1,32 +1,33 @@
 ###
- 0000000   0000000   000      000000000
-000       000   000  000         000   
-0000000   000000000  000         000   
-     000  000   000  000         000   
-0000000   000   000  0000000     000   
+ 0000000   0000000   000      000000000  00000000  00000000 
+000       000   000  000         000     000       000   000
+0000000   000000000  000         000     0000000   0000000  
+     000  000   000  000         000     000       000   000
+0000000   000   000  0000000     000     00000000  000   000
 ###
 
 fs    = require 'fs'
 path  = require 'path'
 write = require 'write-file-atomic'
+choki = require 'chokidar'
+path  = require 'path'
 _     = require 'lodash'
-watch = require './watch'
 font  = require '../font.json'
 log   = console.log
 
 args = require('karg') """
-salt
+salter
     directory  . ? the directory to watch . * . = .
     verbose    . ? log activity . = false
     version    . - V . = #{require("#{__dirname}/../package.json").version}
 """
 
 ###
- 0000000   00000000   000000000
-000   000  000   000     000   
-000   000  00000000      000   
-000   000  000           000   
- 0000000   000           000   
+00000000  000   000  000000000
+000        000 000      000   
+0000000     00000       000   
+000        000 000      000   
+00000000  000   000     000   
 ###
 
 hash = 
@@ -46,15 +47,16 @@ slashslash =
         fill:    '*  '
         postfix: '*/'
 
-options =     
+ext =     
     coffee: hash
     py:     hashfill     
     styl:   slashslash
+    h:      slashslash
     cpp:    slashslash
 
 opt = 
     dir: args.directory
-    ext: Object.keys options
+    ext: Object.keys ext
 
 ###
 000   000   0000000   000000000   0000000  000   000
@@ -63,14 +65,34 @@ opt =
 000   000  000   000     000     000       000   000
 00     00  000   000     000      0000000  000   000
 ###
+
+watch = (opt, cb) ->
+
+    dir = opt.dir ? '.'
+
+    ignore = [
+        /node_modules/
+        /\/\..+$/
+        /\.git$/
+        /\.app$/
+        /gulpfile.coffee/
+        /Gruntfile.coffee/
+    ]
+    
+    pass = (p) -> if path.extname(p).substr(1) in opt.ext then true
+    
+    watcher = choki.watch dir, ignored: ignore
+    watcher
+        # .on 'add',    (p) -> if pass p then console.log '| ' + p #else console.log '- ' + p
+        .on 'change', (p) -> if pass p then cb p
     
 watch opt, (f) ->
     fs.readFile f, 'utf8', (err, data) -> 
         if err 
             log "can't read #{f}"
             return
-        opt = options[path.extname(f).substr 1]
-        salted = salt data, opt
+        sopt = ext[path.extname(f).substr 1]
+        salted = salt data, sopt
         if salted != data
             log f if args.verbose
             write f, salted, (err) ->
