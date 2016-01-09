@@ -1,6 +1,6 @@
 {
   "name": "salter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "writes ascii font headers",
   "main": "js/salter.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "github.com/monsterkodi/salter"
   },
   "bugs": {
-      "url": "https://github.com/monsterkodi/salter/issues"
+    "url": "https://github.com/monsterkodi/salter/issues"
   },
   "keywords": [
     "salter",
@@ -19,7 +19,7 @@
   "license": "Unlicense",
   "preferGlobal": true,
   "bin": {
-      "salter": "./bin/salter"
+    "salter": "./bin/salter"
   },
   "dependencies": {
     "chokidar": "^1.4.2",
