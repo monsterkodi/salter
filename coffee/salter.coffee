@@ -99,8 +99,8 @@ watch opt, (f) ->
         if err 
             log "can't read #{f}"
             return
-        sopt = ext[path.extname(f).substr 1]
-        salted = salt data, sopt
+
+        salted = salt data, ext[path.extname(f).substr 1]
         if salted != data
             log f if args.verbose
             write f, salted, (err) ->
@@ -148,4 +148,4 @@ salt = (s, options) ->
         else
             salted.push lines[li]
         
-    salted.join('\n')
+    salted.join '\n'
