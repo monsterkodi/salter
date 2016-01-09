@@ -5,7 +5,7 @@
   "main": "js/salter.js",
   "repository": {
     "type": "git",
-    "url": "github.com/monsterkodi/salter"
+    "url": "https://github.com/monsterkodi/salter"
   },
   "bugs": {
     "url": "https://github.com/monsterkodi/salter/issues"

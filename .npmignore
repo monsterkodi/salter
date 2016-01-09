@@ -1,3 +1,4 @@
 coffee
 bin/publish
 bin/run
+gulpfile.coffee
