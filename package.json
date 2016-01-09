@@ -7,6 +7,9 @@
     "type": "git",
     "url": "github.com/monsterkodi/salter"
   },
+  "bugs": {
+      "url": "https://github.com/monsterkodi/salter/issues"
+  },
   "keywords": [
     "salter",
     "ascii",
