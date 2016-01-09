@@ -15,6 +15,9 @@
   "author": "monsterkodi",
   "license": "Unlicense",
   "preferGlobal": true,
+  "bin": {
+      "salter": "./bin/salter"
+  },
   "dependencies": {
     "chokidar": "^1.4.2",
     "karg": ">=0.1.5",
