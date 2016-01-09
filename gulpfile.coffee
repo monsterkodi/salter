@@ -22,7 +22,7 @@ gulp.task 'clean', (cb) ->
     del.sync [ 'js' ]
     cb()
     
-gulp.task 'release', ['clean', 'salt', 'coffee']
+gulp.task 'release', ['clean', 'coffee']
 
 gulp.task 'default', ->
                 
