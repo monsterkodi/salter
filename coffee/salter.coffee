@@ -41,7 +41,12 @@ hashfill =
         fill:    '#  '
         postfix: null
 
-slashslash =
+slash =
+        marker:  '//!'
+        prefix:  '/*'
+        postfix: '*/'
+
+slashfill =
         marker:  '//!'
         prefix:  '/*'
         fill:    '*  '
@@ -49,10 +54,11 @@ slashslash =
 
 ext =     
     coffee: hash
+    js:     slash
+    h:      slash
+    cpp:    slash
     py:     hashfill     
-    styl:   slashslash
-    h:      slashslash
-    cpp:    slashslash
+    styl:   slashfill
 
 opt = 
     dir: args.directory
@@ -81,9 +87,11 @@ watch = (opt, cb) ->
     
     pass = (p) -> if path.extname(p).substr(1) in opt.ext then true
     
-    watcher = choki.watch dir, ignored: ignore
+    watcher = choki.watch dir, 
+        ignored: ignore
+        ignoreInitial: true
     watcher
-        # .on 'add',    (p) -> if pass p then console.log '| ' + p #else console.log '- ' + p
+        .on 'add',    (p) -> if pass p then cb p
         .on 'change', (p) -> if pass p then cb p
     
 watch opt, (f) ->

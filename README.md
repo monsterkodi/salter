@@ -23,6 +23,7 @@ When a file change occurs it searches for special comment lines, eg:
 Currently, the following file types are handled:
 
 - coffee
+- js
 - h, cpp
 - py
 - styl
