@@ -8,7 +8,9 @@
     "url": "github.com/monsterkodi/salter"
   },
   "keywords": [
-    "salter"
+    "salter",
+    "ascii",
+    "headers"
   ],
   "author": "monsterkodi",
   "license": "Unlicense",
@@ -20,9 +22,9 @@
     "write-file-atomic": "^1.1.4"
   },
   "devDependencies": {
-    "bump": "^0.2.5",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
+    "gulp-bump": "^1.0.0",
     "gulp-coffee": "^2.3.1",
     "gulp-debug": "^2.1.2",
     "gulp-load-plugins": "^1.2.0",
