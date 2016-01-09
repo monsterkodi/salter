@@ -1,6 +1,6 @@
 {
   "name": "salter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "writes ascii font headers",
   "main": "js/salter.js",
   "repository": {
