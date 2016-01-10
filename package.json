@@ -26,10 +26,10 @@
   "dependencies": {
     "chokidar": "^1.4.2",
     "colors": "^1.1.2",
-    "karg": ">=0.1.5",
     "lodash": "^3.10.1",
-    "noon": ">=0.6.4",
-    "sds": ">=1.4.7",
-    "write-file-atomic": "^1.1.4"
+    "write-file-atomic": "^1.1.4",
+    "karg": ">=0.1.8",
+    "noon": ">=0.6.11",
+    "sds": ">=1.4.12"
   }
 }
