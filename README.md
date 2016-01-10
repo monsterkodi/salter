@@ -2,7 +2,12 @@
 
 A command line utility that generates ascii-font headers. 
 
+```shell
+> npm install -g salter
+```
+
 It watches for changes to source files in (or below) a given directory.  
+
 When a file change occurs it searches for special comment lines, eg:
 
 ```coffee
@@ -20,13 +25,38 @@ When a file change occurs it searches for special comment lines, eg:
 ###
 ```
 
-Currently, the following file types are handled:
+Currently, the following file types are handled by default:
 
 - coffee
 - js
+- ts
 - h, cpp
 - py
 - styl
+- jade
+
+### Configuration
+
+On startup, salter looks for configuration files in your home directory and/or the target directory: **.salter.noon** or **.salter.json**
+
+For example, a **.salter.noon** file that adds handling of html files could look like this:
+```
+html
+    marker      !!
+    prefix      <!--
+    postfix     --!>
+```
+
+or, if you prefer json:
+``` json
+{
+    "html": {
+        "marker": "!!",
+        "prefix": "<!--",
+        "postfix": "-->"
+    }
+}
+```
 
 This stuff works for me, but I won't guarantee that it works for you as well. 
 Use at your own risk!

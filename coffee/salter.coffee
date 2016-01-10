@@ -6,14 +6,17 @@
 0000000   000   000  0000000     000     00000000  000   000
 ###
 
-fs    = require 'fs'
-path  = require 'path'
-write = require 'write-file-atomic'
-choki = require 'chokidar'
-path  = require 'path'
-_     = require 'lodash'
-font  = require '../font.json'
-log   = console.log
+fs     = require 'fs'
+path   = require 'path'
+noon   = require 'noon'
+colors = require 'colors'
+sds    = require 'sds'
+write  = require 'write-file-atomic'
+choki  = require 'chokidar'
+path   = require 'path'
+_      = require 'lodash'
+font   = require '../font.json'
+log    = console.log
 
 args = require('karg') """
 salter
@@ -21,6 +24,39 @@ salter
     verbose    . ? log activity . = false
     version    . - V . = #{require("#{__dirname}/../package.json").version}
 """
+
+###
+00000000   00000000   0000000   0000000   000      000   000  00000000
+000   000  000       000       000   000  000      000   000  000     
+0000000    0000000   0000000   000   000  000       000 000   0000000 
+000   000  000            000  000   000  000         000     000     
+000   000  00000000  0000000    0000000   0000000      0      00000000
+###
+resolve = (unresolved) ->
+    p = unresolved.replace /\~/, process.env.HOME
+    p = path.resolve p
+    p = path.normalize p
+    p
+
+###
+ 0000000   0000000   000   000  00000000  000   0000000 
+000       000   000  0000  000  000       000  000      
+000       000   000  000 0 000  000000    000  000  0000
+000       000   000  000  0000  000       000  000   000
+ 0000000   0000000   000   000  000       000   0000000 
+###
+config = (defaults) ->
+    merge = (f) -> defaults = _.defaultsDeep sds.load(f), defaults
+    for f in [
+        resolve '~/.salter.noon'
+        resolve '~/.salter.json'
+        resolve path.join args.directory, '.salter.noon'
+        resolve path.join args.directory, '.salter.json'
+        ]
+        if fs.existsSync f
+            merge resolve f
+    if args.verbose then log noon.stringify defaults, colors:true
+    defaults
 
 ###
 00000000  000   000  000000000
@@ -52,13 +88,19 @@ slashfill =
         fill:    '*  '
         postfix: '*/'
 
-ext =     
+ext = config   
     coffee: hash
     js:     slash
+    ts:     slash
     h:      slash
     cpp:    slash
     py:     hashfill     
     styl:   slashfill
+    jade:
+        marker:  '//!'
+        prefix:  null
+        fill:    '//- '
+        postfix: null
 
 opt = 
     dir: args.directory
@@ -93,7 +135,7 @@ watch = (opt, cb) ->
     watcher
         .on 'add',    (p) -> if pass p then cb p
         .on 'change', (p) -> if pass p then cb p
-    
+            
 watch opt, (f) ->
     fs.readFile f, 'utf8', (err, data) -> 
         if err 
@@ -102,7 +144,7 @@ watch opt, (f) ->
 
         salted = salt data, ext[path.extname(f).substr 1]
         if salted != data
-            log f if args.verbose
+            log '->'.gray, f.yellow if args.verbose
             write f, salted, (err) ->
                 log "can't write #{f}" if err
 
