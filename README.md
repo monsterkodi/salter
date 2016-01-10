@@ -3,7 +3,7 @@
 A command line utility that generates ascii-font headers. 
 
 ```shell
-> npm install -g salter
+npm install -g salter
 ```
 
 It watches for changes to source files in (or below) a given directory.  
@@ -25,6 +25,8 @@ When a file change occurs it searches for special comment lines, eg:
 ###
 ```
 
+### Defaults
+
 Currently, the following file types are handled by default:
 
 - coffee
@@ -34,6 +36,9 @@ Currently, the following file types are handled by default:
 - py
 - styl
 - jade
+
+The default marker for coffee and python files is: **#!!**  
+For all other file types: **//!**
 
 ### Configuration
 
