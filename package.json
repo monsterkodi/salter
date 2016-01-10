@@ -1,35 +1,35 @@
 {
-    "name": "salter",
-    "version": "0.1.0",
-    "description": "writes ascii font headers",
-    "main": "js/salter.js",
-    "homepage": "https://github.com/monsterkodi/salter",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/monsterkodi/salter"
-    },
-    "bugs": {
-        "url": "https://github.com/monsterkodi/salter/issues"
-    },
-    "keywords": [
-        "ascii header",
-        "command line",
-        "cli",
-        "tool"
-    ],
-    "author": "monsterkodi",
-    "license": "Unlicense",
-    "preferGlobal": true,
-    "bin": {
-        "salter": "./bin/salter"
-    },
-    "dependencies": {
-        "chokidar": "^1.4.2",
-        "colors": "^1.1.2",
-        "karg": ">=0.1.5",
-        "lodash": "^3.10.1",
-        "noon": ">=0.6.4",
-        "sds": ">=1.4.7",
-        "write-file-atomic": "^1.1.4"
-    }
+  "name": "salter",
+  "version": "0.1.1",
+  "description": "writes ascii font headers",
+  "main": "js/salter.js",
+  "homepage": "https://github.com/monsterkodi/salter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monsterkodi/salter"
+  },
+  "bugs": {
+    "url": "https://github.com/monsterkodi/salter/issues"
+  },
+  "keywords": [
+    "ascii header",
+    "command line",
+    "cli",
+    "tool"
+  ],
+  "author": "monsterkodi",
+  "license": "Unlicense",
+  "preferGlobal": true,
+  "bin": {
+    "salter": "./bin/salter"
+  },
+  "dependencies": {
+    "chokidar": "^1.4.2",
+    "colors": "^1.1.2",
+    "karg": ">=0.1.5",
+    "lodash": "^3.10.1",
+    "noon": ">=0.6.4",
+    "sds": ">=1.4.7",
+    "write-file-atomic": "^1.1.4"
+  }
 }
