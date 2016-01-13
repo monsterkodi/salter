@@ -23,6 +23,6 @@ dependencies
                 colors              ^1.1.2
                 lodash              ^4.0.0
                 write-file-atomic   ^1.1.4
-                karg                >=0.1.17
-                noon                >=0.6.14
-                sds                 >=1.4.16
+                karg                >=0.1.18
+                noon                >=0.6.16
+                sds                 >=1.4.19
