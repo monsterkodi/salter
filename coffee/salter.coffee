@@ -24,6 +24,7 @@ salter
     directory  . ? the directory to watch . * . = .
     verbose    . ? log more                   . = false
     quiet      . ? log nothing                . = false
+    time       . ? log with time              . = true
     
 version    #{require("#{__dirname}/../package.json").version}
 """
@@ -41,6 +42,25 @@ resolve = (unresolved) ->
     p = path.normalize p
     p
 
+###
+00000000   00000000   00000000  000000000  000000000  000   000
+000   000  000   000  000          000        000      000 000 
+00000000   0000000    0000000      000        000       00000  
+000        000   000  000          000        000        000   
+000        000   000  00000000     000        000        000   
+###
+
+prettyPath = (p, c=colors.gray) ->
+    p.split(path.sep).map((n) -> c(n).bold).join c(path.sep)
+
+prettyTime = () ->
+    if args.time
+        d = new Date()
+        ["#{_.padStart(String(d.getHours()),   2, '0').bold}:"
+         "#{_.padStart(String(d.getMinutes()), 2, '0').bold}:"
+         "#{_.padStart(String(d.getSeconds()), 2, '0').bold}"].join('').blue
+    else
+        ''
 ###
  0000000   0000000   000   000  00000000  000   0000000 
 000       000   000  0000  000  000       000  000      
@@ -147,7 +167,7 @@ watch opt, (f) ->
 
         salted = salt data, ext[path.extname(f).substr 1]
         if salted != data
-            log '☛'.gray, f.bold.gray if not args.quiet
+            log prettyTime(), '☛'.gray, prettyPath(f) if not args.quiet
             write f, salted, (err) ->
                 log "can't write #{f.bold.yellow}".bold.red if err
 
