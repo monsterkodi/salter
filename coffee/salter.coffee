@@ -19,10 +19,13 @@ font   = require '../font.json'
 log    = console.log
 
 args = require('karg') """
+
 salter
     directory  . ? the directory to watch . * . = .
-    verbose    . ? log activity . = false
-    version    . - V . = #{require("#{__dirname}/../package.json").version}
+    verbose    . ? log more                   . = false
+    quiet      . ? log nothing                . = false
+    
+version    #{require("#{__dirname}/../package.json").version}
 """
 
 ###
@@ -139,14 +142,14 @@ watch = (opt, cb) ->
 watch opt, (f) ->
     fs.readFile f, 'utf8', (err, data) -> 
         if err 
-            log "can't read #{f}"
+            log "can't read #{f.bold.yellow}".bold.red
             return
 
         salted = salt data, ext[path.extname(f).substr 1]
         if salted != data
-            log '->'.gray, f.yellow if args.verbose
+            log '☛'.gray, f.bold.gray if not args.quiet
             write f, salted, (err) ->
-                log "can't write #{f}" if err
+                log "can't write #{f.bold.yellow}".bold.red if err
 
 ###
  0000000    0000000   0000000  000  000
