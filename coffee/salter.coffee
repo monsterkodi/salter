@@ -50,17 +50,18 @@ resolve = (unresolved) ->
 000        000   000  00000000     000        000        000   
 ###
 
-prettyPath = (p, c=colors.gray) ->
-    p.split(path.sep).map((n) -> c(n).bold).join c(path.sep)
+prettyPath = (p, c=colors.white) ->
+    p.split(path.sep).map((n) -> c(n).bold).join c(path.sep).dim
 
 prettyTime = () ->
     if args.time
         d = new Date()
-        ["#{_.padStart(String(d.getHours()),   2, '0').bold}:"
-         "#{_.padStart(String(d.getMinutes()), 2, '0').bold}:"
-         "#{_.padStart(String(d.getSeconds()), 2, '0').bold}"].join('').blue
+        ["#{_.padStart(String(d.getHours()),   2, '0').gray}#{':'.dim.gray}"
+         "#{_.padStart(String(d.getMinutes()), 2, '0').gray}#{':'.dim.gray}"
+         "#{_.padStart(String(d.getSeconds()), 2, '0').gray}"].join('')
     else
         ''
+
 ###
  0000000   0000000   000   000  00000000  000   0000000 
 000       000   000  0000  000  000       000  000      
@@ -68,6 +69,7 @@ prettyTime = () ->
 000       000   000  000  0000  000       000  000   000
  0000000   0000000   000   000  000       000   0000000 
 ###
+
 config = (defaults) ->
     merge = (f) -> defaults = _.defaultsDeep sds.load(f), defaults
     for f in [
