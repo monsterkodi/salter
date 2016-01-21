@@ -1,28 +1,28 @@
-name          salter
-version       0.1.3
-description   writes ascii font headers
-main          js/salter.js
-homepage      https://github.com/monsterkodi/salter
+name            salter
+version         0.1.4
+description     writes ascii font headers
+main            js/salter.js
+homepage        https://github.com/monsterkodi/salter
 repository
-              type  git
-              url   https://github.com/monsterkodi/salter
+                type    git
+                url     https://github.com/monsterkodi/salter
 bugs
-              url   https://github.com/monsterkodi/salter/issues
+                url     https://github.com/monsterkodi/salter/issues
 keywords
-              ascii header
-              command line
-              cli
-              tool
-author        monsterkodi
-license       Unlicense
-preferGlobal  true
+                ascii header
+                command line
+                cli
+                tool
+author          monsterkodi
+license         Unlicense
+preferGlobal    true
 bin
-              salter  ./bin/salter
+                salter  ./bin/salter
 dependencies
-              chokidar        ^1.4.2
-              colors          ^1.1.2
-              lodash          ^4.0.0
-              write-file-atomic  ^1.1.4
-              karg            >=0.1.31
-              noon            >=0.7.4
-              sds             >=1.4.23
+                chokidar            ^1.4.2
+                colors              ^1.1.2
+                lodash              ^4.0.0
+                write-file-atomic   ^1.1.4
+                karg                >=0.1.31
+                noon                >=0.7.4
+                sds                 >=1.4.23
