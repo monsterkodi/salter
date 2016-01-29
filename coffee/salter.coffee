@@ -10,7 +10,6 @@ fs     = require 'fs'
 path   = require 'path'
 noon   = require 'noon'
 colors = require 'colors'
-sds    = require 'sds'
 write  = require 'write-file-atomic'
 choki  = require 'chokidar'
 path   = require 'path'
@@ -71,7 +70,7 @@ prettyTime = () ->
 ###
 
 config = (defaults) ->
-    merge = (f) -> defaults = _.defaultsDeep sds.load(f), defaults
+    merge = (f) -> defaults = _.defaultsDeep noon.load(f), defaults
     for f in [
         resolve '~/.salter.noon'
         resolve '~/.salter.json'

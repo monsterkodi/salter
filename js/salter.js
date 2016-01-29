@@ -8,7 +8,7 @@
  */
 
 (function() {
-  var _, args, asciiJoin, asciiLines, choki, colors, config, ext, font, fs, hash, hashfill, log, noon, opt, path, prettyPath, prettyTime, resolve, salt, sds, slash, slashfill, watch, write,
+  var _, args, asciiJoin, asciiLines, choki, colors, config, ext, font, fs, hash, hashfill, log, noon, opt, path, prettyPath, prettyTime, resolve, salt, slash, slashfill, watch, write,
     indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   fs = require('fs');
@@ -18,8 +18,6 @@
   noon = require('noon');
 
   colors = require('colors');
-
-  sds = require('sds');
 
   write = require('write-file-atomic');
 
@@ -92,7 +90,7 @@
   config = function(defaults) {
     var f, i, len, merge, ref;
     merge = function(f) {
-      return defaults = _.defaultsDeep(sds.load(f), defaults);
+      return defaults = _.defaultsDeep(noon.load(f), defaults);
     };
     ref = [resolve('~/.salter.noon'), resolve('~/.salter.json'), resolve(path.join(args.directory, '.salter.noon')), resolve(path.join(args.directory, '.salter.json'))];
     for (i = 0, len = ref.length; i < len; i++) {
