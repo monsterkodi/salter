@@ -1,5 +1,5 @@
 name          salter
-version       0.1.6
+version       0.1.7
 description   writes ascii font headers
 main          js/salter.js
 homepage      https://github.com/monsterkodi/salter
