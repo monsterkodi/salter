@@ -149,6 +149,7 @@
     h: slash,
     cpp: slash,
     py: hashfill,
+    noon: hashfill,
     styl: slashfill,
     jade: {
       marker: '//!',

@@ -36,8 +36,9 @@ Currently, the following file types are handled by default:
 - py
 - styl
 - jade
+- noon
 
-The default marker for coffee and python files is: **#!!**  
+The default marker for coffee, python and noon files is: **#!!**  
 For all other file types: **//!**
 
 ### Configuration
