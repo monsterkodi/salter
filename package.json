@@ -1,6 +1,6 @@
 {
   "name": "salter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "writes ascii font headers",
   "main": "js/salter.js",
   "homepage": "https://github.com/monsterkodi/salter",
