@@ -1,6 +1,6 @@
 {
   "name": "salter",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "writes ascii font headers",
   "main": "js/salter.js",
   "homepage": "https://github.com/monsterkodi/salter",
@@ -26,9 +26,9 @@
   "dependencies": {
     "chokidar": "^1.4.2",
     "colors": "^1.1.2",
-    "lodash": "^4.1.0",
+    "lodash": "^4.2.0",
     "write-file-atomic": "^1.1.4",
-    "karg": ">=0.3.1",
-    "noon": ">=0.9.12"
+    "karg": ">=1.0.1",
+    "noon": ">=1.0.1"
   }
 }
