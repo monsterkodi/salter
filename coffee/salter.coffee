@@ -91,23 +91,23 @@ config = (defaults) ->
 ###
 
 hash = 
-        marker: '#!!'
+        marker: '#>'
         prefix:  '###'
         postfix: '###'
 
 hashfill = 
-        marker: '#!!'
+        marker: '#>'
         prefix:  null
         fill:    '#  '
         postfix: null
 
 slash =
-        marker:  '//!'
+        marker:  '//>'
         prefix:  '/*'
         postfix: '*/'
 
 slashfill =
-        marker:  '//!'
+        marker:  '//>'
         prefix:  '/*'
         fill:    '*  '
         postfix: '*/'
@@ -122,7 +122,7 @@ ext = config
     noon:   hashfill
     styl:   slashfill
     jade:
-        marker:  '//!'
+        marker:  '//>'
         prefix:  null
         fill:    '//- '
         postfix: null

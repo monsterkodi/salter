@@ -29,17 +29,14 @@ When a file change occurs it searches for special comment lines, eg:
 
 Currently, the following file types are handled by default:
 
-- coffee
-- js
-- ts
+- coffee, js, ts
+- styl, jade
 - h, cpp
-- py
-- styl
-- jade
 - noon
+- py
 
-The default marker for coffee, python and noon files is: **#!!**  
-For all other file types: **//!**
+The default marker for coffee, python and noon files is: **#>**  
+For all other file types: **//>**
 
 ### Configuration
 
@@ -48,7 +45,7 @@ On startup, salter looks for configuration files in your home directory and/or t
 For example, a **.salter.noon** file that adds handling of html files could look like this:
 ```
 html
-    marker      !!
+    marker      >>
     prefix      <!--
     postfix     --!>
 ```
@@ -57,14 +54,10 @@ or, if you prefer json:
 ``` json
 {
     "html": {
-        "marker": "!!",
+        "marker": ">>",
         "prefix": "<!--",
         "postfix": "-->"
     }
 }
 ```
 
-This stuff works for me, but I won't guarantee that it works for you as well. 
-Use at your own risk!
-
-[npm](https://www.npmjs.com/package/salter)
