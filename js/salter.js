@@ -1,12 +1,3 @@
-
-/*
- 0000000   0000000   000      000000000  00000000  00000000 
-000       000   000  000         000     000       000   000
-0000000   000000000  000         000     0000000   0000000  
-     000  000   000  000         000     000       000   000
-0000000   000   000  0000000     000     00000000  000   000
- */
-
 (function() {
   var _, args, asciiJoin, asciiLines, choki, colors, config, ext, font, fs, hash, hashfill, log, noon, opt, path, prettyPath, prettyTime, resolve, salt, slash, slashfill, watch, write,
     indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -33,15 +24,6 @@
 
   args = require('karg')("\nsalter\n    directory  . ? the directory to watch . * . = .\n    verbose    . ? log more                   . = false\n    quiet      . ? log nothing                . = false\n    time       . ? log with time              . = true\n    \nversion    " + (require(__dirname + "/../package.json").version));
 
-
-  /*
-  00000000   00000000   0000000   0000000   000      000   000  00000000
-  000   000  000       000       000   000  000      000   000  000     
-  0000000    0000000   0000000   000   000  000       000 000   0000000 
-  000   000  000            000  000   000  000         000     000     
-  000   000  00000000  0000000    0000000   0000000      0      00000000
-   */
-
   resolve = function(unresolved) {
     var p;
     p = unresolved.replace(/\~/, process.env.HOME);
@@ -49,15 +31,6 @@
     p = path.normalize(p);
     return p;
   };
-
-
-  /*
-  00000000   00000000   00000000  000000000  000000000  000   000
-  000   000  000   000  000          000        000      000 000 
-  00000000   0000000    0000000      000        000       00000  
-  000        000   000  000          000        000        000   
-  000        000   000  00000000     000        000        000
-   */
 
   prettyPath = function(p, c) {
     if (c == null) {
@@ -78,15 +51,6 @@
     }
   };
 
-
-  /*
-   0000000   0000000   000   000  00000000  000   0000000 
-  000       000   000  0000  000  000       000  000      
-  000       000   000  000 0 000  000000    000  000  0000
-  000       000   000  000  0000  000       000  000   000
-   0000000   0000000   000   000  000       000   0000000
-   */
-
   config = function(defaults) {
     var f, i, len, merge, ref;
     merge = function(f) {
@@ -106,15 +70,6 @@
     }
     return defaults;
   };
-
-
-  /*
-  00000000  000   000  000000000
-  000        000 000      000   
-  0000000     00000       000   
-  000        000 000      000   
-  00000000  000   000     000
-   */
 
   hash = {
     marker: '#>',
@@ -164,15 +119,6 @@
     ext: Object.keys(ext)
   };
 
-
-  /*
-  000   000   0000000   000000000   0000000  000   000
-  000 0 000  000   000     000     000       000   000
-  000000000  000000000     000     000       000000000
-  000   000  000   000     000     000       000   000
-  00     00  000   000     000      0000000  000   000
-   */
-
   watch = function(opt, cb) {
     var dir, ignore, pass, ref, watcher;
     dir = (ref = opt.dir) != null ? ref : '.';
@@ -218,15 +164,6 @@
       }
     });
   });
-
-
-  /*
-   0000000    0000000   0000000  000  000
-  000   000  000       000       000  000
-  000000000  0000000   000       000  000
-  000   000       000  000       000  000
-  000   000  0000000    0000000  000  000
-   */
 
   asciiLines = function(s, options) {
     var c, cs, i, len, rs, zs;
