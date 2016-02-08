@@ -26,9 +26,9 @@
   "dependencies": {
     "chokidar": "^1.4.2",
     "colors": "^1.1.2",
-    "lodash": "^4.2.0",
+    "lodash": "^4.2.1",
     "write-file-atomic": "^1.1.4",
-    "karg": ">=1.0.1",
-    "noon": ">=1.0.1"
+    "karg": ">=1.0.3",
+    "noon": ">=1.0.4"
   }
 }
