@@ -98,7 +98,7 @@ hash =
 hashfill = 
         marker: '#>'
         prefix:  null
-        fill:    '#  '
+        fill:    '#'
         postfix: null
 
 slash =
@@ -113,7 +113,7 @@ slashfill =
         postfix: '*/'
 
 ext = config   
-    coffee: hash
+    coffee: hashfill
     js:     slash
     ts:     slash
     h:      slash

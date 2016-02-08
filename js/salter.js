@@ -125,7 +125,7 @@
   hashfill = {
     marker: '#>',
     prefix: null,
-    fill: '#  ',
+    fill: '#',
     postfix: null
   };
 
@@ -143,7 +143,7 @@
   };
 
   ext = config({
-    coffee: hash,
+    coffee: hashfill,
     js: slash,
     ts: slash,
     h: slash,
