@@ -80,7 +80,7 @@
   hashfill = {
     marker: '#>',
     prefix: null,
-    fill: '#',
+    fill: '# ',
     postfix: null
   };
 
