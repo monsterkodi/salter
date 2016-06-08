@@ -100,16 +100,16 @@ slash =
 
 slashfill =
         marker:  '//>'
-        prefix:  '/*'
-        fill:    '*  '
-        postfix: '*/'
+        prefix:  null
+        fill:    '// '
+        postfix: null
 
 ext = config   
     coffee: hashfill
-    js:     slash
+    js:     slashfill
     ts:     slash
-    h:      slash
-    cpp:    slash
+    h:      slashfill
+    cpp:    slashfill
     py:     hashfill     
     noon:   hashfill
     styl:   slashfill
